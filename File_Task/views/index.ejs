@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-900 text-white">
+
+    <div class="min-h-screen p-8">
+
+        <h1 class="text-4xl font-bold mb-8 text-center tracking-tight">
+            📝 Create Task
+        </h1>
+
+        <!-- Create Form -->
+        <div class="max-w-3xl mx-auto bg-zinc-800 border border-zinc-700 p-8 rounded-2xl shadow-xl">
+
+            <form action="/create" method="post" class="space-y-4">
+
+                <input 
+                    class="w-full rounded-xl px-5 py-3 bg-zinc-900 border border-zinc-700 text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                    type="text" 
+                    name="title" 
+                    placeholder="Enter Task Title..."
+                >
+
+                <textarea 
+                    class="w-full h-40 rounded-xl px-5 py-3 bg-zinc-900 border border-zinc-700 text-white resize-none focus:ring-2 focus:ring-blue-500 outline-none"
+                    name="details"  
+                    placeholder="Write your task details here..."
+                ></textarea>
+
+                <button 
+                    class="w-full bg-blue-600 hover:bg-blue-500 px-5 py-3 rounded-xl font-semibold transition shadow-lg">
+                    Create Task
+                </button>
+
+            </form>
+
+        </div>
+
+        <h2 class="text-3xl font-semibold mt-12 mb-4">📂 Your Tasks</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <% if(file.length > 0) { %>
+
+                <% file.forEach(function(val){ %>
+
+                    <div class="bg-zinc-800 p-6 rounded-2xl border border-zinc-700 shadow-lg hover:shadow-blue-600/20 transition">
+
+                        <h1 class="text-xl font-semibold tracking-tight mb-3 break-words">
+                            <%= val %>
+                        </h1>
+
+                        <div class="flex items-center justify-between">
+
+                            <a 
+                                href="/readFile/<%=val%>"
+                                class="text-blue-400 hover:text-blue-300 font-medium transition"
+                            >
+                                Read →
+                            </a>
+
+                            <a 
+                                href="/edit/<%=val%>"
+                                class="text-yellow-400 hover:text-yellow-300 font-medium transition"
+                            >
+                                Edit ✎
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                <% }) %>
+
+            <% } else { %>
+
+                <h3 class="text-zinc-500 text-lg">No tasks available</h3>
+
+            <% } %>
+
+        </div>
+
+    </div>
+</body>
+</html>

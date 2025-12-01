@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit File</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-zinc-950 text-white">
+
+    <div class="min-h-screen flex items-center justify-center p-8 relative">
+
+        <!-- Back Button -->
+        <a href="/" 
+           class="absolute top-6 left-6 px-5 py-2 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-xl font-medium shadow-md transition">
+            ← Back
+        </a>
+
+        <!-- Main Content -->
+        <div class="w-full max-w-3xl bg-zinc-900/60 backdrop-blur-sm rounded-2xl p-10 shadow-2xl border border-zinc-800">
+
+            <h1 class="text-3xl font-bold mb-8 tracking-tight text-center">
+                ✎ Rename File
+            </h1>
+
+            <form action="/edit" method="post" class="space-y-6">
+
+                <!-- Old Filename -->
+                <div>
+                    <label class="block mb-2 text-zinc-400 font-medium">Current File Name</label>
+                    <input 
+                        class="w-full rounded-xl px-5 py-3 bg-zinc-800/60 border border-zinc-700 text-zinc-500 cursor-not-allowed 
+                            placeholder-zinc-600 shadow-sm select-none"
+                        type="text" 
+                        name="pervTitle" 
+                        value="<%= filename %>"
+                        readonly
+                    >
+
+                </div>
+
+                <!-- New Filename -->
+                <div>
+                    <label class="block mb-2 text-zinc-400 font-medium">New File Name</label>
+                    <input 
+                        class="w-full rounded-xl px-5 py-3 bg-zinc-950 border border-zinc-700 text-white focus:ring-2 focus:ring-green-600 outline-none placeholder-zinc-500 shadow-sm"
+                        type="text" 
+                        name="newTitle" 
+                        placeholder="Enter new file name..."
+                    >
+                </div>
+
+                <!-- Rename Button -->
+                <button 
+                    class="w-full bg-blue-600 hover:bg-blue-500 px-5 py-3 rounded-xl font-semibold transition shadow-lg mt-3">
+                    Rename File
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read File</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-zinc-900 text-white p-10">
+
+    <a href="/" 
+       class="mb-6 inline-block bg-zinc-800 px-4 py-2 rounded-xl border border-zinc-700 hover:bg-zinc-700 transition">
+        ← Back
+    </a>
+
+    <div class="max-w-4xl mx-auto bg-zinc-800 border border-zinc-700 p-8 rounded-2xl shadow-xl">
+
+        <h1 class="text-2xl font-semibold mb-4"><%= filename %></h1>
+
+        <pre class="bg-zinc-900 border border-zinc-700 p-6 rounded-xl overflow-x-auto whitespace-pre-wrap text-lg leading-relaxed">
+        <%= data %>
+        </pre>
+    </div>
+
+</body>
+</html>
