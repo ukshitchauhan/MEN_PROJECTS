@@ -1,0 +1,63 @@
+/* style.css */
+
+/* Card shadow and hover effect */
+.user-card {
+    border-radius: 1rem; /* rounded corners */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Image overlay with blur */
+.user-card .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+    transition: background-color 0.3s ease;
+}
+
+/* On hover, overlay slightly lighter */
+.user-card:hover .overlay {
+    background-color: rgba(0,0,0,0.2);
+}
+
+/* Content positioning */
+.user-card .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.25rem;
+    color: white;
+}
+
+/* Buttons styling */
+.user-card .content a {
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.user-card .content a.edit {
+    color: #facc15; /* yellow */
+}
+
+.user-card .content a.delete {
+    color: #f87171; /* red */
+}
+
+.user-card .content a.edit:hover {
+    color: #fbbf24;
+}
+
+.user-card .content a.delete:hover {
+    color: #f87171;
+}
