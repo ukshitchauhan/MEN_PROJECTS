@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post | MyApp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(24, 24, 27, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-zinc-100 flex items-center justify-center min-h-screen relative overflow-hidden">
+
+    <!-- Ambient Glow -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[100px]"></div>
+    </div>
+
+    <div class="w-full max-w-lg glass-card p-2 rounded-[2.5rem] relative z-10 mx-4">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="font-bold text-white text-xl">Edit Post</h1>
+                <a href="/profile" class="text-sm text-zinc-400 hover:text-white transition-colors">Cancel</a>
+            </div>
+
+            <form action="/update/<%= post._id %>" method="post">
+                <textarea
+                    name="content"
+                    class="w-full h-48 bg-transparent text-lg text-white placeholder-zinc-500 focus:outline-none resize-none leading-relaxed"
+                    autofocus
+                ><%= post.content %></textarea>
+                
+                <div class="flex justify-end mt-4">
+                    <button 
+                        type="submit" 
+                        class="bg-white text-black font-bold px-8 py-3 rounded-full hover:bg-zinc-200 transition-colors"
+                    >
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
