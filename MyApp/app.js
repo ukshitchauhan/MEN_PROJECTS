@@ -5,11 +5,22 @@ const postModel = require('./models/post');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const mongoose = require('mongoose');
 
 app.set('view engine','ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect('mongodb+srv://chauhanukshit_db_user:<db_password>@cluster0.j2cpjoy.mongodb.net/?appName=Cluster0');
+    console.log("✅ Database Connected Successfully");
+  } catch (error) {
+    console.error("❌ Database Connection Failed:", error);
+  }
+}
+connectDB();
 
 app.get('/',(req,res)=>{
     res.render('index');
